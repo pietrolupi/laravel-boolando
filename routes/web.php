@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->name('home');
+
+
+
+Route::get('/donna', function () {
+    return view('women');
+})->name('women');
+
+
+Route::get('/uomo', function () {
+    return view('men');
+})->name('men');
+
+
+Route::get('/bambini', function () {
+    return view('children');
+})->name('children');
