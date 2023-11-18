@@ -14,21 +14,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+
+    $products = config('products');
+
+    return view('home', compact('products'));
 })->name('home');
 
 
 
 Route::get('/donna', function () {
-    return view('women');
+    $products = config('products');
+    return view('women',compact('products'));
 })->name('women');
 
 
 Route::get('/uomo', function () {
-    return view('men');
+    $products = config('products');
+    return view('men',compact('products'));
 })->name('men');
 
 
 Route::get('/bambini', function () {
-    return view('children');
+    $products = config('products');
+    return view('children',compact('products'));
 })->name('children');
+
+
+Route::get('/dettaglio-prodotto/{slug}', function ($slug) {
+    $products = config('products');
+
+    $product_array = array_filter($products,fn($product)=> $product['slug'] === $slug);
+
+    $product = $product_array[array_key_first($product_array)];
+
+    return view('productDetail',compact('product'));
+})->name('productDetail');

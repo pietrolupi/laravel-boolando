@@ -5,10 +5,54 @@
 
 @section('content')
 
-<h1>PRODOTTI BAMBINI</h1>
+<?php
 
-<h2>Qui stampo prodotti bambini</h2>
+$productsChildren = array_filter($products, function($product){
+    return $product['gender'] === 'children';
+});
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia possimus a quibusdam ratione, non culpa iusto unde facilis magni, illum eligendi, explicabo modi qui libero officiis nesciunt quod sequi amet accusantium. Voluptatum cumque doloremque animi veniam sapiente quod ipsam minima sint, ducimus voluptatibus commodi consequatur voluptates enim quas culpa nisi.</p>
+?>
+
+@forelse ($productsChildren as $productChildren )
+
+<div class="card-container">
+    <a href="#">
+
+        <div class="img-card">
+            <a href="{{route('productDetail', ['slug'=>$productChildren['slug']])}}">
+                <img src="{{$productChildren['img']}}" alt="{{$productChildren['name']}}" class="img-main">
+                <img src="{{$productChildren['imgHover']}}" alt="" class="img-hover">
+            </a>
+
+            @if ($productChildren['discount'] === true)
+                <span class="discount">{{$productChildren['discountPerc']}}</span>
+            @endif
+
+            @if ($productChildren['ecological'] === true )
+                <span class="ecological">Sostenibilità</span>
+            @endif
+
+            <span class="heart"> &hearts;</span>
+        </div>
+    </a>
+</div>
+
+@empty
+
+<div class="pd-container empty">
+    <div>
+        <img src="img/nada.png" alt="">
+    </div>
+    <div>
+        <h1>Nessun prodotto disponibile al momento</h1>
+    </div>
+    <div>
+        <img src="img/nada.png" alt="">
+    </div>
+</div>
+
+@endforelse
+
+
 
 @endsection

@@ -5,10 +5,39 @@
 
 @section('content')
 
-<h1>PRODOTTI DONNE</h1>
+<?php
 
-<h2>Qui stampo prodotti donne</h2>
+$productsFemale = array_filter($products, function($product){
+    return $product['gender'] === 'female';
+});
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia possimus a quibusdam ratione, non culpa iusto unde facilis magni, illum eligendi, explicabo modi qui libero officiis nesciunt quod sequi amet accusantium. Voluptatum cumque doloremque animi veniam sapiente quod ipsam minima sint, ducimus voluptatibus commodi consequatur voluptates enim quas culpa nisi.</p>
+?>
+
+@foreach ($productsFemale as $productFemale)
+
+
+<div class="card-container">
+    <a href="#">
+
+        <div class="img-card">
+            <a href="{{route('productDetail', ['slug'=>$productFemale['slug']])}}">
+                <img src="{{$productFemale['img']}}" alt="{{$productFemale['name']}}" class="img-main">
+                <img src="{{$productFemale['imgHover']}}" alt="" class="img-hover">
+            </a>
+
+            @if ($productFemale['discount'] === true)
+                <span class="discount">{{$productFemale['discountPerc']}}</span>
+            @endif
+
+            @if ($productFemale['ecological'] === true )
+                <span class="ecological">Sostenibilità</span>
+            @endif
+
+            <span class="heart"> &hearts;</span>
+        </div>
+    </a>
+</div>
+
+@endforeach
 
 @endsection

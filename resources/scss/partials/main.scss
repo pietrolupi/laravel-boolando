@@ -4,111 +4,143 @@ main {
     width: 90%;
     max-width: 1600px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 
-    .main-container {
-      width: 32.5%;
-      min-width: 300px ;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      padding-bottom: 50px;
+
+    .pd-container{
+        height: 68vh;
+        display: flex;
+
+        &.empty{
+
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            img{
+                height: 200px;
+            }
+            h1{
+
+            }
+        }
+        .pd-img-container{
+            margin-right: 50px;
+            img{
+                height: 100%;
+            }
+        }
+        .pd-text{
+            max-width: 900px;
+            h1{
+                margin: 20px 0 50px 0;
+            }
+        }
     }
 
-    .img-card {
-      position: relative;
-    }
+}
 
-    .img-card img {
-      width: 100%;
-    }
+.card-container {
+  width: 32.5%;
+  min-width: 300px ;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding-bottom: 50px;
+}
 
-    .discount,
-    .ecological-no-discount {
-      position: absolute;
-      left: 0px;
-      bottom: 40px;
-    }
-    .ecological {
-      position: absolute;
-      left: 62px;
-      bottom: 40px;
-    }
+.img-card {
+  position: relative;
+}
 
-    .heart {
-      position: absolute;
-      right: 0px;
-      top: 15px;
-      border-radius: 50%;
-    }
+.img-card img {
+  width: 100%;
+}
+
+.discount,
+.ecological-no-discount {
+  position: absolute;
+  left: 0px;
+  bottom: 40px;
+}
+.ecological {
+  position: absolute;
+  left: 62px;
+  bottom: 40px;
+}
+
+.heart {
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  border-radius: 50%;
+}
 
 
 
-    .price {
-      font-weight: bold;
-      color: red;
-    }
+.price {
+  font-weight: bold;
+  color: red;
+}
 
-    .ex-price {
-      text-decoration: line-through;
-    }
+.ex-price {
+  text-decoration: line-through;
+}
 
-    .discount {
-      padding: 5px 10px;
-      background-color: red;
-      color: white;
-      font-weight: bold;
-    }
+.discount {
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
 
-    .ecological,
-    .ecological-no-discount {
-      padding: 5px 10px;
-      background-color: green;
-      color: white;
-      font-weight: bold;
-    }
+.ecological,
+.ecological-no-discount {
+  padding: 5px 10px;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
 
-    .heart {
-      background-color: white;
-      padding: 5px 15px;
-      font-size: 2.5rem;
-    }
+.heart {
+  background-color: white;
+  padding: 5px 15px;
+  font-size: 2.5rem;
+}
 
-    .heart:hover {
-      color: red;
-      cursor: pointer;
-    }
+.heart:hover {
+  color: red;
+  cursor: pointer;
+}
 
-    .img-main {
-      position: absolute;
-    }
+.img-main {
+  position: absolute;
+}
 
-    .img-card:hover .img-main {
-      display: none;
-    }
+.img-card:hover .img-main {
+  display: none;
+}
 
-    footer {
-      color: white;
-    }
+footer {
+  color: white;
+}
 
-    a {
-      text-decoration: none;
-      color: white;
-    }
+a {
+  text-decoration: none;
+  color: white;
+}
 
-    .footer-info h4 {
-      font-size: 1.25rem;
-      padding-bottom: 12px;
-    }
+.footer-info h4 {
+  font-size: 1.25rem;
+  padding-bottom: 12px;
+}
 
-    .footer-socials p {
-      font-weight: bold;
-    }
+.footer-socials p {
+  font-weight: bold;
+}
 
-    .product-description {
-      background-color: white;
+.product-description {
+  background-color: white;
 
-      padding-left: 15px;
-    }
-  }
+  padding-left: 15px;
+}
